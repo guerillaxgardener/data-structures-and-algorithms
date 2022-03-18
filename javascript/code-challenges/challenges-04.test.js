@@ -22,19 +22,13 @@ function lower(str) {
 }
 
 const updateAnimal = (arr, callback) => {
-  // Solution code here...
   let newArr = [];
-  arr.sort((a, b) => {
-    if (a.toLowerCase() < b.toLowerCase()) {
-      return -1;
-    } if (a.toLowerCase() > b.toLowerCase()) {
-      return 1;
-    }
-    return;
+  arr.forEach((animalName) => {
+    newArr.push(callback(animalName));
   });
-
   return newArr;
 };
+
 
 
 
@@ -47,7 +41,15 @@ For example: 'Cat' would come before 'apple'
 ------------------------------------------------------------------------------------------------ */
 
 const sortNames = (arr) => {
-  // Solution code here...
+  arr.sort((a, b) => {
+    if (a < b) {
+      return -1;
+    }
+    if (a < b) {
+      return 1;
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
