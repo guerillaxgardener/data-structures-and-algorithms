@@ -103,9 +103,8 @@ Here is an example of the input:
 ];
 ------------------------------------------------------------------------------------------------ */
 
-const sortByPrice = (arr) => {
-  // Solution code here...
-};
+// a & b represent each object here
+const sortByPrice = (arr) => arr.sort((a, b) => a.price - b.price);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -175,6 +174,16 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
+  return arr.sort((a, b) => {
+    if (a.lastName.toLowerCase() !== b.lastName.toLowerCase()) {
+      return a.lastName > b.lastName ? 1 : -1;
+    } else if (a.firstName.toLowerCase() !== b.firstName.toLowerCase()); {
+      return a.firstName > b.firstName ? 1 : -1;
+    }
+    {else {
+      return a.age - b.age;
+    }
+    });
 };
 
 /* ------------------------------------------------------------------------------------------------
