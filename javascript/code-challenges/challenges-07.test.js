@@ -24,12 +24,12 @@ let starWarsPeople = [
   },
 ];
 
-const sortStarWarsCharacters = (starWarsArr) =>
+const sortStarWarsCharacters = (starWarsArr) =>{
   // Solution code here...
   starWarsArr.sort((firstItem, secondItem) => {
-    parseInt(firstItem.height) - parseInt(secondItem.height);
+    (parseInt(firstItem.height) - parseInt(secondItem.height));
   }
-};
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -39,6 +39,8 @@ Write a function named removeThree that takes an index and an array. The functio
 
 const removeThree = (idx, arr) => {
   // Solution code here...
+  arr.splice(idx, 3);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -127,6 +129,11 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  recipe.ingredients.forEach((ingredient) => {
+    let withoutAmount = ingredient.slice(ingredient.indexOf(' ') + 1);
+    let withoutUnits = withoutAmount.slice(withoutAmount.indexOf(' ') + 1);
+    result.push(withoutUnits);
+  })
   return result;
 };
 
