@@ -19,7 +19,8 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
-const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+const courseInfo = {
+  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true
 };
@@ -63,9 +64,27 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 const updateNumbers = (obj) => {
   // Solution code here...
+  const newArr = [];
+
+  Object.keys(obj).forEach(key => {
+    newArr.push(`${key}: ${obj[key]}`);
+  });
+  return newArr;
 };
 
+// old-school for loop for solution
+// const updateNumbers = (obj) => {
+//   // Solution code here...
+//   const newArr = [];
 
+//   let keyArray = Object.keys(obj);
+//   let valueArray = Object.values(obj);
+
+//   for (let i = 0; i < keyArray.length; i++) {
+//     newArr.push(`${keyArray[i]}: ${valueArray[i]}`);
+//   }
+//   return newArr;
+// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -136,7 +155,17 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-
+  let kid = 0;
+  arr.forEach(person => {
+    if (person.name === character) {
+      Object.keys(person).forEach((key, index) => {
+        if(key === "children"){
+          kid = Object.values(person)[index].length;
+        }
+      });
+    }
+  });
+  return kid ? true : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
