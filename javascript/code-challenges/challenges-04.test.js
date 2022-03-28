@@ -22,11 +22,7 @@ function lower(str) {
 }
 
 const updateAnimal = (arr, callback) => {
-  let newArr = [];
-  arr.forEach((animalName) => {
-    newArr.push(callback(animalName));
-  });
-  return newArr;
+  return arr.map((animal) => callback(animal));
 };
 
 
@@ -41,15 +37,7 @@ For example: 'Cat' would come before 'apple'
 ------------------------------------------------------------------------------------------------ */
 
 const sortNames = (arr) => {
-  arr.sort((a, b) => {
-    if (a < b) {
-      return -1;
-    }
-    if (a < b) {
-      return 1;
-    }
-  });
-  return arr;
+  return arr.sort();
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -61,7 +49,7 @@ HINT: Beware... JS default is "Lexical" ordering.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbers = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => a - b);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,8 +61,13 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => b - a);
 };
+
+
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -88,7 +81,14 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 
 const alphabetize = (arr) => {
   // Solution code here...
+  return arr.sort();
 };
+
+
+
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -104,7 +104,11 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 // a & b represent each object here
-const sortByPrice = (arr) => arr.sort((a, b) => a.price - b.price);
+// solved
+const sortByPrice = (arr) => arr.sort((a, b) => {
+  return (a.price - b.price);
+}
+);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -174,16 +178,15 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
-  return arr.sort((a, b) => {
-    if (a.lastName.toLowerCase() !== b.lastName.toLowerCase()) {
-      return a.lastName > b.lastName ? 1 : -1;
-    } else if (a.firstName.toLowerCase() !== b.firstName.toLowerCase()); {
-      return a.firstName > b.firstName ? 1 : -1;
-    }
-    {else {
-      return a.age - b.age;
-    }
-    });
+  // return arr.sort((a, b) => {
+  //   if (a.lastName.toLowerCase() !== b.lastName.toLowerCase()) {
+  //     return a.lastName > b.lastName ? 1 : -1;
+  //   } else if (a.firstName.toLowerCase() !== b.firstName.toLowerCase()); {
+  //     return a.firstName > b.firstName ? 1 : -1;
+  //   }else {
+  //     return a.age - b.age;
+  //   }
+  // });
 };
 
 /* ------------------------------------------------------------------------------------------------
