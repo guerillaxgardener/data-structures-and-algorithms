@@ -8,9 +8,14 @@ using the 'reduce' method.
 
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
-const maxInArray = (arr) => {
-  // Solution code here...
-};
+const maxInArray = (arr) => arr.reduce((toBeReduced, valueCompare) => {
+  if (toBeReduced < valueCompare) {
+    toBeReduced = valueCompare;
+  }
+  return toBeReduced;
+}, 0);
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -41,6 +46,7 @@ Write a function named checkValues that takes in an object and a value and retur
 
 const checkValues = (obj, value) => {
   // Solution code here...
+  return Object.values(obj).includes(value);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,11 +141,7 @@ const characters = [
   },
 ];
 
-const getHouses = (arr) => {
-  let houses = [];
-  // Solution code here...
-  return houses;
-};
+const getHouses = (arr) => arr.map((person) => person.house);
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -159,7 +161,7 @@ const hasChildrenValues = (arr, character) => {
   arr.forEach(person => {
     if (person.name === character) {
       Object.keys(person).forEach((key, index) => {
-        if(key === "children"){
+        if (key === "children") {
           kid = Object.values(person)[index].length;
         }
       });
