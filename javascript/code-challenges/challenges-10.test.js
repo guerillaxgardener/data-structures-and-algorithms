@@ -8,7 +8,6 @@ Write a function named returnTen, takes in a string and uses split and splice to
 ------------------------------------------------------------------------------------------------ */
 
 function returnTen(str) {
-  // Solution code here...
   const newArr = str.split('');
   newArr.splice(0, newArr.length - 10);
   return newArr;
@@ -29,13 +28,12 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-  let newMax = ((array) => {
-    return array.sort((a, b) => {
-      return b-a;
-    },[0]);
+  let reducedArray = [];
+  for (let i in matrix) {
+    reducedArray.push(matrix[i].reduce((a, b) => Math.max(a, b)));
   }
-  return matrix.sort(()=>)
-  );
+  let highestValue = reducedArray.reduce((a, b) => Math.max(a, b));
+  return highestValue;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -53,7 +51,12 @@ For example:
 return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
-  // Solution code here...
+  let addingSum = 0;
+  for (let i in matrix) {
+    for (let j in matrix[i]) {
+      addingSum += matrix[i][j];
+    }
+  } return addingSum;
 };
 
 
@@ -80,9 +83,15 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
-
+  return stores.reduce((accumulator, currentVal) => {
+    return accumulator.map((integer, index) => {
+      return integer + currentVal[index];
+    });
+  });
 };
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -95,7 +104,15 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let hourlyArray = [];
+  hours.forEach((element, hour) => {
+    let desiredObject = {
+      sales: `${data[hour]} cookies`,
+      time: `${hours[hour]}`
+    };
+    hourlyArray.push(desiredObject);
+  });
+  return hourlyArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,8 +137,9 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  return arr[2].items[1].quantity;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
