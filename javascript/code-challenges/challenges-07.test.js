@@ -24,19 +24,41 @@ let starWarsPeople = [
   },
 ];
 
-const sortStarWarsCharacters = (starWarsArr) => starWarsArr.sort((firstItem, secondItem) => secondItem.height - firstItem.height);
+// const sortStarWarsCharacters = (starWarsArr) => {
+// };
+
+
+const sortStarWarsCharacters = (starWarsArr) => {
+  return starWarsArr.sort((a, b) => b.height - a.height);
+};
+
+// const sortStarWarsCharacters = (starWarsArr) => starWarsArr.sort((firstItem, secondItem) => secondItem.height - firstItem.height);
 
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named removeThree that takes an index and an array. The function should removes three items in the array starting with the value at the index.
+Write a function named removeThree that takes an index and an array. The function should remove three items in the array starting with the value at the index.
 ------------------------------------------------------------------------------------------------ */
+// const removeThree = (idx, arr) => {
+
+// };
+
+
+
+
+
+
+
+
+
 
 const removeThree = (idx, arr) => {
-  arr.splice(idx, 3);
+  arr.splice(idx,3);
   return arr;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
