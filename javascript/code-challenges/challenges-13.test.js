@@ -7,7 +7,6 @@ Write a function named longestString that takes in an array of strings and retur
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-  // Solution code here...
   let result = '';
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].length > result.length) {
@@ -26,7 +25,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  // Solution code here...
+  return arr.map(str => str.charAt(0));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -38,7 +37,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+  return arr.filter(string => string.includes(':)'));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -51,6 +50,7 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
+  return arr.map(num => `${num.substring(1, 4)}${num.substring(6, 9)}${num.substring(10, 14)}`);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -62,7 +62,8 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  return str.split('').filter((letter, idx) => idx % 2 !== 0).join('');
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -70,9 +71,10 @@ CHALLENGE 6
 
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
+// this will use every() function
 
 const allHappy = (arr) => {
-  // Solution code here...
+  return arr.every(string => string.includes(':)'));
 };
 
 /* ------------------------------------------------------------------------------------------------
