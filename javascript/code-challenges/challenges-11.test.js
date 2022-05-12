@@ -3,6 +3,7 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
+
 Write a function named transformToLis that, given an object, returns an array of the key value pairs as html list items.
 
 For example:
@@ -39,23 +40,20 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 // target = integer being amount provided array of arrays to find enclosed within
 // input = array of arrays
+
+
+
 const count = (target, input) => {
-  // Solution code here...
-};
-
-// inclass
-const count2 = (num, twoDArr) => {
-  // Solution code here...
-  return twoDArr.reduce((acc, currentVal) => {
-    const rowCount = currentVal.reduce((innerAcc, innerCurrentVal) => {
-      if(innerCurrentVal === num){
-        return innerAcc + 1;
+  let count = 0;
+  input.map(number => {
+    number.map(value => {
+      if (value === target) {
+        return count += 1;
       }
-      return innerAcc;
-    }, 0);
+    });
   });
+  return count;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -67,8 +65,16 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  let totalSum = 0;
+  for (let i = 0; i < input.length; i++) {
+    let currentArray = input[i];
+    for (let j = 0; j < currentArray.length; j++) {
+      totalSum += currentArray[j];
+    }
+  }
+  return totalSum;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -153,9 +159,16 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-let findMaleAndFemale = (data) => {
-  // Solution code here...
-};
+let findMaleAndFemale = (data) => data.reduce((name, character, idx) => {
+  if (idx < data.length - 1 && (character.gender === 'male' || character.gender === 'female')) {
+    return name + character.name + ' and ';
+  } else if (character.gender === 'male' || character.gender === 'female') {
+    return name + character.name;
+  } else {
+    return name;
+  }
+}, '');
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -164,8 +177,10 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
+  return data.reduce((shorty, person) => parseInt(shorty.height) < person.height ? shorty : person).name;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
