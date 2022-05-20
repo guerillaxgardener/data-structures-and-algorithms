@@ -7,8 +7,11 @@ Write a function named returnTen, takes in a string and uses split and splice to
 
 ------------------------------------------------------------------------------------------------ */
 
+
+//1 split string into array of each letter making up string
+//2 splice away array length-10 to be left with array of last 10 characters in initial string.
 function returnTen(str) {
-  const newArr = str.split('');
+  let newArr = str.split('');
   newArr.splice(0, newArr.length - 10);
   return newArr;
 }
@@ -27,13 +30,17 @@ For example:
 
 return: 23
 ------------------------------------------------------------------------------------------------ */
+
+
 const findMax = (matrix) => {
   let reducedArray = [];
   for (let i in matrix) {
+    //looks at each row(i) and returns an array populated with the highest value from each
     reducedArray.push(matrix[i].reduce((a, b) => Math.max(a, b)));
   }
-  let highestValue = reducedArray.reduce((a, b) => Math.max(a, b));
-  return highestValue;
+  //looks at array and reduces to largest single element
+  let highestNumber = reducedArray.reduce((a, b) => Math.max(a, b));
+  return highestNumber;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -50,15 +57,17 @@ For example:
 
 return: 35
 ------------------------------------------------------------------------------------------------ */
+// create bucket
+// accumulate in bucket
+
 const totalSum = (matrix) => {
-  let addingSum = 0;
+  let addingBucket = 0;
   for (let i in matrix) {
     for (let j in matrix[i]) {
-      addingSum += matrix[i][j];
+      addingBucket += matrix[i][j];
     }
-  } return addingSum;
+  } return addingBucket;
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -91,8 +100,6 @@ const grandTotal = (stores) => {
 };
 
 
-
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -102,17 +109,22 @@ Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
 
 Write a function named salesData that uses forEach to iterate over the hourlySales array and create an object for each hour. Return an array of the formatted data.
 ------------------------------------------------------------------------------------------------ */
+// create array to push in objects after formatting
+// run forEach loop over the hours provided in parameters
+// create object within loop being created listing cookies sold and the time
+// push created object into hoursArray
+// return the filled array
 
 const salesData = (hours, data) => {
-  let hourlyArray = [];
+  let hoursArray = [];
   hours.forEach((element, hour) => {
-    let desiredObject = {
+    let objectualDesire = {
       sales: `${data[hour]} cookies`,
       time: `${hours[hour]}`
     };
-    hourlyArray.push(desiredObject);
+    hoursArray.push(objectualDesire);
   });
-  return hourlyArray;
+  return hoursArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,6 +147,11 @@ const errands = [
     items: [{ name: 'Cans of food', quantity: 8 }, { name: 'Treats', quantity: 24 }, { name: 'Leash', quantity: 1 }]
   }
 ];
+
+//just need to return quantity treats
+//arr index 2 will get us to correct object
+//.items will get us to correct place within object
+//we'll then grab the quantity treats
 
 const howManyTreats = (arr) => {
   return arr[2].items[1].quantity;
